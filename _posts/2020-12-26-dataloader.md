@@ -8,9 +8,9 @@ They're convinient tools for proprocessing your data before you feed them into y
 * Shuffle data
 * Generate new data or transform existing data on the fly
 
-However, I find the documentation ([here][1] and [here][2]) somewhat unclear.
+However, I find the official documentation ([here][1] and [here][2]) somewhat unclear.
 For example, when and why do you need to specify a buffer size when calling `shuffle()` in TensorFlow?
-What the hell is a `map-style dataset` in PyTorch?
+What is a `map-style dataset` in PyTorch?
 
 This post aims to clarify and provide instructions for common usage.
 
