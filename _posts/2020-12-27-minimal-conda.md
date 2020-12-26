@@ -42,7 +42,7 @@ dependencies:
     - requests
 ```
 
-Once you have your dependencies written down in a file(say `my_env.yml`), run `conda env create -f my_env.yml` to recreate the environment. **Do not confuse `conda env create` with `conda create`; the former creates environments from file, while the latter creates environment interactively.**
+Once you have your dependencies written down in a file(say `my_env.yml`), you(or your friends) may run `conda env create -f my_env.yml` to recreate the environment. **Do not confuse `conda env create` with `conda create`; the former creates environments from file, while the latter creates environment interactively.**
 
 
 [1]: https://github.com/facebookresearch/faiss/blob/master/INSTALL.md
