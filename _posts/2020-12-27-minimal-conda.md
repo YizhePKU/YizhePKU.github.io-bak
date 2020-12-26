@@ -13,19 +13,21 @@ After installation, restart your shell. By default, Conda will activate a `base`
 
 ## Using Conda
 
-Conda's command line interface is quite unintuitive and inconsistent, so brace yourself when reading the documentation. Here're the most useful commands:
+Conda's command line interface is somewhat unintuitive and inconsistent, so brace yourself when reading the documentation. Here're the most useful commands to get you started:
 
 * `conda env list` to list all environemnts.
 * `conda create --name my_env` to create an empty environment.
 * `conda activate my_env` to enter an environment.
-* `conda install some_package` to add packages incrementally to current environment. Note that you can add multiple packages at once, which will usually be faster.
-* `conda deactivate` to exit current environment.
+* `conda install some_package` to add packages to current environment. Note that you can add multiple packages at once, which is usually faster.
+* `conda deactivate` to exit the current environment.
 
-These commands are great for interactive exploration: you can add one package at a time. However, once you've decided which packages to use, you should write it down for reproductivity. Conda uses YAML as its environment file format. This is an example environment file from one of my personal project:
+These commands are great for trying things out. However, once you've decided which packages to use, you should write it down for reproductivity. Conda uses YAML as its environment file format. This is an example environment file from one of my personal project:
 
 ```yaml
+# Name of your environment
 name: my_project
 
+# Extra channels to use when searching for packages. Can be empty.
 channels:
   - pytorch
 
@@ -35,6 +37,7 @@ dependencies:
   - faiss-gpu
   - pip
 
+  # Packages that should be installed by pip
   - pip:
     - requests
 ```
