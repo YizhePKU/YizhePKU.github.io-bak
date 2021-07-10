@@ -1,19 +1,23 @@
 # A minimal guide to Conda
 
-I used to be a happy user of `pip` and `virtualenv`, until I came across [a library][1] that is only distributed via Conda and not pip. This post serves as a minimal guide to use libraries like that.
+**Hint:** If you forget commands often(like me), go install [tldr](https://github.com/tldr-pages/tldr). Try it, it's awesome.
+
+## When to use Conda/Virtualenv
+
+Both Conda and Virtualenv create seperate Python environments. Virtualenv is lightweight and easier to get started with. On the other hand, Conda has more features. For example, Conda lets you use different Python versions in different environments. Conda also employs an SAT solver for dependency solving.
 
 ## Install Conda
 
-You want [MiniConda][2], not the full Anaconda. It takes less space, and you can always install packages as needed. Also, Anaconda installs default packages in every environment you create, which might cause conflicts later.
+When choosing an installer, prefer the smaller [MiniConda][1] over Anaconda. MiniConda comes with no default packages, so you can start with a clean slate.
 
-Download the install script, `chmod` to make it executable, and run it. The install script will offer to setup your shell; accept that. Note it's not just about setting up $PATH: Conda needs to integrate itself into the shell, so that it can modify environment as it wish.
+Download and run the install script. Restart your shell after installation completes.
 
-After installation, restart your shell. By default, Conda will activate a `base` environment in every shell you create. If you don't like it, run `conda config --set auto_activate_base false`.
+By default, Conda will activate `base` environment in every shell you create. If you don't like it, run `conda config --set auto_activate_base false`.
 
 
 ## Using Conda
 
-Conda's command line interface is somewhat unintuitive and inconsistent, so brace yourself when reading the documentation. Here're the most useful commands to get you started:
+Conda's command line interface is somewhat unintuitive and inconsistent. Here're the most useful commands to get you started(use `tldr` in case you forget some of them):
 
 * `conda env list` to list all environemnts.
 * `conda create --name my_env` to create an empty environment.
@@ -21,7 +25,7 @@ Conda's command line interface is somewhat unintuitive and inconsistent, so brac
 * `conda install some_package` to add packages to current environment. Note that you can add multiple packages at once, which is usually faster.
 * `conda deactivate` to exit the current environment.
 
-These commands are great for trying things out. However, once you've decided which packages to use, you should write it down for reproductivity. Conda uses YAML as its environment file format. This is an example environment file from one of my personal project:
+These commands are great for trying things out. However, once you've decided which packages to use, you should pin it down for reproductivity. Conda uses YAML as its environment file format. Here is an example environment file:
 
 ```yaml
 # Name of your environment
@@ -42,8 +46,8 @@ dependencies:
     - requests
 ```
 
-Once you have your dependencies written down in a file(say `my_env.yml`), you(or your friends) may run `conda env create -f my_env.yml` to recreate the environment. **Do not confuse `conda env create` with `conda create`; the former creates environments from file, while the latter creates environment interactively.**
+Save it to a file, say `requirement.txt`, you can then run `conda env create -f my_env.yml` to recreate the environment.
 
+Do not confuse `conda env create` with `conda create`; the former creates environments from file, while the latter creates environment interactively.
 
-[1]: https://github.com/facebookresearch/faiss/blob/master/INSTALL.md
-[2]: https://docs.conda.io/en/latest/miniconda.html
+[1]: https://docs.conda.io/en/latest/miniconda.html
